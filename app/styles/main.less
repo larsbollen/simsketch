@@ -1,0 +1,74 @@
+html {
+  height: 100%;
+}
+
+body {
+  padding:0 0;
+  margin:0 0;
+  height: 100%;
+  // overflow: hidden;
+  // disable selection
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#simsketch_container {
+  display:table;
+  height:100%;
+  width:100%;
+  //border: 2px solid red;
+}
+
+// for the buttons
+a {
+  color: black;
+}
+a:hover, a:hover span {
+  color: darkgray;
+}
+
+#simsketch_toolbar {
+  display:table-row;
+  background: lavender;
+  border: 5px solid darkslategray;
+  //-webkit-border-radius: 25px;
+  //border-radius: 25px;
+}
+
+#simsketch_drawing {
+  display:table-row;
+  height:100%;
+  background:lavender;
+}
+
+#simsketch_canvas {
+  display:table-row;
+  width: 100%;
+  height:100%;
+  //border: 2px solid black;
+  border: 5px solid darkslategray;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+}
+
+.simsketch_behavior {
+  position: absolute;
+  //border: 2px solid red;
+}
+
+#simsketch_behaviorbar {
+  padding: 10px;
+  width: 140px;
+  background: lavender;
+  border: 3px solid darkslategray;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#simsketch_behaviorbar ul {
+  list-style: none;
+}

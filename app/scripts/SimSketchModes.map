@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "SimSketchModes.js",
+  "sourceRoot": "",
+  "sources": [
+    "SimSketchModes.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,UAAA;CAAA,CAEA,CACE,GADI,QAAN;CACE,CAAO,EAAP,CAAA;CAAA,CACS,EAAT,GAAA;CADA,CAES,EAAT,GAAA;CAFA,CAGU,EAAV,IAAA;CAHA,CAIS,EAAT,GAAA;CAPF,GAAA;CAAA"
+}

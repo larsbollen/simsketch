@@ -1,0 +1,5 @@
+NameError: variable @glass is undefined in D:\code\sources\golab\sources\libs\font-awesome\less\icons.less on line 4, column 31:
+3 
+4 .icon-glass:before { content: @glass; }
+5 .icon-music:before { content: @music; }
+

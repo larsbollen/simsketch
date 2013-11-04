@@ -1,0 +1,5 @@
+NameError: .icon-FontAwesome is undefined in D:\code\sources\golab\sources\libs\font-awesome\less\core.less on line 6, column 3:
+5 [class*=" icon-"] {
+6   .icon-FontAwesome();
+7 }
+

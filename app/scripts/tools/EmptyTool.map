@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "EmptyTool.js",
+  "sourceRoot": "",
+  "sources": [
+    "EmptyTool.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,UAAA;CAAA,KAAA;oSAAA;;;CAEO,EAAa,CAApB,EAAM;IAFN;;CAAA,CAIM,IAAM,GAAU;CAEpB;;CAAa,EAAA,CAAA,eAAA;CACX,KAAA,GAAA,mCAAA;CADF,IAAa;;CAAb;;CAFuC,IAAK;CAJ9C"
+}
