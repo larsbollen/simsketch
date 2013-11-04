@@ -12,7 +12,7 @@ class window.simsketch.SimSketchToolbar
     @drawingTool = new simsketch.DrawingTool(paper)
     @erasingTool = new simsketch.ErasingTool(paper)
     @groupingTool = new simsketch.GroupingTool(paper)
-    @playTool = new simsketch.PlayTool(drawingID, paper, behaviors)
+    @playTool = new simsketch.PlayTool(drawingID, paper, behaviors, @)
     # creating the toolbar and adding the buttons
     @toolbarElement = $("##{toolbarID}")
     @toolbarElement.empty()

@@ -11,17 +11,18 @@
   window.simsketch.PlayTool = (function(_super) {
     __extends(PlayTool, _super);
 
-    function PlayTool(drawingID, paper, behaviors) {
+    function PlayTool(drawingID, paper, behaviors, toolbar) {
       PlayTool.__super__.constructor.apply(this, arguments);
       this.drawingID = drawingID;
       this.paper = paper;
       this.behaviors = behaviors;
+      this.toolbar = toolbar;
     }
 
     PlayTool.prototype.activate = function() {
       var _this = this;
       PlayTool.__super__.activate.apply(this, arguments);
-      return $("#" + this.drawingID).find(".simsketch_behavior").each(function(index, behavior) {
+      $("#" + this.drawingID).find(".simsketch_behavior").each(function(index, behavior) {
         var behaviorPosition, child, closestChild, distanceToBehavior, minDistance, _i, _len, _ref;
         minDistance = Number.POSITIVE_INFINITY;
         behaviorPosition = new _this.paper.Point(behavior.offsetLeft, behavior.offsetTop);
@@ -38,6 +39,18 @@
         closestChild.strokeColor = new _this.paper.Color(1, 0, 0);
         return _this.behaviors[$(behavior).attr("data-behaviorID")].setObject(closestChild);
       });
+      return this.paper.view.onFrame = function(event) {
+        var behavior, id, _ref, _results;
+        if (_this.toolbar.getMode() === SimSketchModes.playing) {
+          _ref = _this.behaviors;
+          _results = [];
+          for (id in _ref) {
+            behavior = _ref[id];
+            _results.push(behavior.apply());
+          }
+          return _results;
+        }
+      };
     };
 
     return PlayTool;

@@ -17,10 +17,3 @@ class window.simsketch.SimSketch
     @behaviors = {}
     @toolbar = new simsketch.SimSketchToolbar(@paper, toolbarID, drawingID, @behaviors)
     @behaviorbar = new simsketch.SimSketchBehaviorbar(@paper, behaviorbarID, canvasID, drawingID, @behaviors)
-
-    @paper.view.onFrame = (event) =>
-      if @toolbar.getMode() is SimSketchModes.playing
-        console.log @behaviors
-        for id, behavior of @behaviors
-          console.log behavior
-          behavior.apply()

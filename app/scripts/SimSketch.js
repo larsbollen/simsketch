@@ -15,27 +15,12 @@
 
   window.simsketch.SimSketch = (function() {
     function SimSketch(canvasID, toolbarID, behaviorbarID, drawingID) {
-      var _this = this;
       this.canvasID = canvasID;
       console.log("Initializing SimSketch.");
       this.paper = paper.setup(this.canvasID);
       this.behaviors = {};
       this.toolbar = new simsketch.SimSketchToolbar(this.paper, toolbarID, drawingID, this.behaviors);
       this.behaviorbar = new simsketch.SimSketchBehaviorbar(this.paper, behaviorbarID, canvasID, drawingID, this.behaviors);
-      this.paper.view.onFrame = function(event) {
-        var behavior, id, _ref, _results;
-        if (_this.toolbar.getMode() === SimSketchModes.playing) {
-          console.log(_this.behaviors);
-          _ref = _this.behaviors;
-          _results = [];
-          for (id in _ref) {
-            behavior = _ref[id];
-            console.log(behavior);
-            _results.push(behavior.apply());
-          }
-          return _results;
-        }
-      };
     }
 
     return SimSketch;

@@ -21,7 +21,7 @@
       this.drawingTool = new simsketch.DrawingTool(paper);
       this.erasingTool = new simsketch.ErasingTool(paper);
       this.groupingTool = new simsketch.GroupingTool(paper);
-      this.playTool = new simsketch.PlayTool(drawingID, paper, behaviors);
+      this.playTool = new simsketch.PlayTool(drawingID, paper, behaviors, this);
       this.toolbarElement = $("#" + toolbarID);
       this.toolbarElement.empty();
       this.buttons = $('<h2>&nbsp SimSketch! </h2>');
