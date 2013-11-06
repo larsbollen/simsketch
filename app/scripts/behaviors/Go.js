@@ -20,7 +20,6 @@
     function _Class(object) {
       this.apply = __bind(this.apply, this);
       _Class.__super__.constructor.apply(this, arguments);
-      console.log("Initializing Go.");
       this.setName("go");
       this.setIconName("fa-arrow-right");
       this._delta = new paper.Point(5, 0);

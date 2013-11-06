@@ -7,7 +7,6 @@ class window["simsketch.behaviors.Rotate"] extends window.simsketch.behaviors.Ab
 
   constructor: (object) ->
     super
-    console.log("Initializing Rotate.")
     @setName("rotate")
     @setIconName("fa-repeat")
     @setProperty("degreesPerStep", 3)

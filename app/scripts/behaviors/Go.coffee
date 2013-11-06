@@ -7,7 +7,6 @@ class window["simsketch.behaviors.Go"] extends window.simsketch.behaviors.Abstra
 
   constructor: (object) ->
     super
-    console.log("Initializing Go.")
     @setName("go")
     @setIconName("fa-arrow-right")
     #setProperty("pixelsPerStep", 3)

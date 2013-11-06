@@ -22,7 +22,8 @@ class window.simsketch.PlayTool extends paper.Tool
       console.log ".position: #{behaviorPosition}"
       for child in @paper.project.activeLayer.children
         # TODO am I really calculating the correct distance? e.g. offsets between simsketch_drawing / canvas
-        distanceToBehavior = behaviorPosition.getDistance((child.getNearestPoint(behaviorPosition)))
+        #distanceToBehavior = behaviorPosition.getDistance((child.getNearestPoint(behaviorPosition)))
+        distanceToBehavior = window.simsketch.utils.distanceBetween(behaviorPosition, child)
         if distanceToBehavior < minDistance
           minDistance = distanceToBehavior
           closestChild = child

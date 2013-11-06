@@ -30,7 +30,7 @@
         _ref = _this.paper.project.activeLayer.children;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           child = _ref[_i];
-          distanceToBehavior = behaviorPosition.getDistance(child.getNearestPoint(behaviorPosition));
+          distanceToBehavior = window.simsketch.utils.distanceBetween(behaviorPosition, child);
           if (distanceToBehavior < minDistance) {
             minDistance = distanceToBehavior;
             closestChild = child;

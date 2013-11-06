@@ -20,7 +20,6 @@
     function _Class(object) {
       this.apply = __bind(this.apply, this);
       _Class.__super__.constructor.apply(this, arguments);
-      console.log("Initializing Rotate.");
       this.setName("rotate");
       this.setIconName("fa-repeat");
       this.setProperty("degreesPerStep", 3);

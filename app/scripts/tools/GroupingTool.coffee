@@ -25,6 +25,7 @@ class window.simsketch.GroupingTool extends paper.Tool
     tempGroupItems = []
     for child in @paper.project.activeLayer.children
       if child.length is 0
+        ## "empty" paths sometimes occor -> remove them
         child.remove()
       else if child isnt @groupingPath and child instanceof @paper.Path
         if simsketch.utils.isInside(child, @groupingPath)
