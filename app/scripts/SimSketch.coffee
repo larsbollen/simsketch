@@ -9,7 +9,6 @@ window.simsketch.availableBehaviors = [
 ]
 
 class window.simsketch.SimSketch
-
   constructor: (canvasID, toolbarID, behaviorbarID, drawingID) ->
     @canvasID = canvasID
     console.log("Initializing SimSketch.")

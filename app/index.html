@@ -11,26 +11,10 @@
         <link rel="stylesheet" type="text/css" href="libs/font-awesome-4.0.1/less/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="styles/sidebar/sidebar.css">
         <link rel="stylesheet" type="text/css" href="styles/main.css">
-
     </head>
 
-    <body onload="init()">
-
+    <body>
         <div id="simsketch_container">
-            <!-- that's an attempt of an twitter bootstrap navbar, not sure if that will stay...
-            <div id="simsketch_navbar">
-                <nav class="navbar navbar-default" role="navigation">
-                    <a class="navbar-brand" href="#">SimSketch</a>
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Messages</a></li>
-                        <button type="button" class="btn btn-default pull-right navbar-btn">Load</button>
-                        <button type="button" class="btn btn-default pull-right navbar-btn">Save</button>
-                    </ul>
-                </nav>
-            </div>
-            -->
             <div id="simsketch_toolbar"><h1><i class="fa fa-spinner fa-spin fa-2x"></i>&nbsp please wait... loading...</h1></div>
             <div id="simsketch_drawing">
                 <canvas id="simsketch_canvas"></canvas>
@@ -39,33 +23,11 @@
 
         <div id="simsketch_behaviorbar"></div>
 
-        <script type="text/javascript" charset="utf-8" src="//codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="//codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="libs/jquery.tabSlideOut.v1.3.js" ></script>
-        <script type="text/javascript" charset="utf-8" src="libs/paperjs-v0.9.9/dist/paper-full.js" ></script>
-        <script type="text/javascript" charset="utf-8" src="libs/uuid.js" ></script>
-
-        <script type="text/javascript" charset="utf-8" src="scripts/SimSketchUtils.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/SimSketch.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/SimSketchModes.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/SimSketchToolbar.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/SimSketchBehaviorbar.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/tools/EmptyTool.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/tools/DrawingTool.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/tools/ErasingTool.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/tools/GroupingTool.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/tools/PlayTool.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/behaviors/AbstractBehavior.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/behaviors/Rotate.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/behaviors/Go.js"></script>
-
-        <script type="text/javascript">
-            function init() {
-                new window.simsketch.SimSketch("simsketch_canvas", "simsketch_toolbar", "simsketch_behaviorbar", "simsketch_drawing");
-            }
-        </script>
+        <!--
+            source file loading is handled by HeadJS in scripts/main.js
+            SimSketch is launched after all required files are ready
         -->
+        <script type="text/javascript" charset="utf-8" src="libs/head.load.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
     </body>
 </html>
