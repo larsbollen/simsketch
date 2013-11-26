@@ -14,16 +14,18 @@
   var _this = this;
 
   head.js("libs/jquery-2.0.3.min.js", "libs/paperjs-v0.9.9/dist/paper-full.js", "libs/uuid.js", function() {
-    console.log("1) jquery, paper, uuid ready.");
     return head.js("libs/jquery-ui-1.10.3.min.js", "libs/jquery.tabSlideOut.v1.3.js", function() {
-      console.log("2) jquery plugins ready.");
-      return head.js("libs/jquery.ui.touch-punch.min.js", "scripts/SimSketch.js", "scripts/SimSketchBehaviorbar.js", "scripts/SimSketchModes.js", "scripts/SimSketchToolbar.js", "scripts/SimSketchUtils.js", "scripts/tools/DrawingTool.js", "scripts/tools/EmptyTool.js", "scripts/tools/ErasingTool.js", "scripts/tools/GroupingTool.js", "scripts/tools/PlayTool.js", "scripts/behaviors/AbstractBehavior.js", function() {
-        console.log("3) basic SimSketch files ready.");
+      return head.js("libs/jquery.ui.touch-punch.min.js", "scripts/SimSketch.js", "scripts/SimSketchBehaviorbar.js", "scripts/SimSketchModes.js", "scripts/SimSketchToolbar.js", "scripts/SimSketchUtils.js", "scripts/tools/DrawingTool.js", "scripts/tools/EmptyTool.js", "scripts/tools/ErasingTool.js", "scripts/tools/GroupingTool.js", "scripts/tools/PlayTool.js", "scripts/behaviors/AbstractBehavior.js", "scripts/behaviors/BehaviorFactory.js", function() {
         return head.js("scripts/behaviors/Go.js", "scripts/behaviors/Rotate.js", function() {
-          console.log("4) SimSketch behaviors ready.");
-          console.log("jquery: " + $);
-          console.log("uuid: " + (uuid.v1()));
-          console.log("Go behavior: " + window["simsketch.behaviors.Go"]);
+          console.log("SimSketch loaded successfully.");
+          console.log("Creating the BehaviorFactory.");
+          if (window.simsketch == null) {
+            window.simsketch = {};
+          }
+          window.simsketch.behaviorFactory = new window.simsketch.behaviors.BehaviorFactory();
+          window.simsketch.behaviorFactory.addBehavior(new window.simsketch.behaviors.Go());
+          window.simsketch.behaviorFactory.addBehavior(new window.simsketch.behaviors.Rotate());
+          console.log("..." + (window.simsketch.behaviorFactory.toString()) + ".");
           return new window.simsketch.SimSketch("simsketch_canvas", "simsketch_toolbar", "simsketch_behaviorbar", "simsketch_drawing");
         });
       });

@@ -10,22 +10,15 @@ class window.simsketch.behaviors.AbstractBehavior
     @_properties =
       _id: uuid.v1()
       _name: "abstractBehavior"
-      _className: "unknown classname"
       _iconName: "fa-question"
     @
 
   setObject: (object) =>
     @_object = object
+    @
 
   getObject: () =>
     @_object
-
-  getClassName: =>
-    @getProperty("_className")
-
-  setClassName: (className) =>
-    @setProperty("_className", className)
-    @
 
   getID: () =>
     @getProperty("_id")
@@ -56,12 +49,9 @@ class window.simsketch.behaviors.AbstractBehavior
     @_properties["#{key}"]
 
   clone: () =>
-    newBehavior = new window[@getClassName()]()
+    newBehavior = new @.constructor()
+    # doing a 'deep copy' of properties, in case properties are nested
     newBehavior._properties = jQuery.extend(true, {}, @_properties)
+    # setting a new ID
     newBehavior.setID(uuid.v1())
     newBehavior
-    # Shallow copy
-    # newObject = jQuery.extend({}, oldObject);
-
-    # Deep copy
-    # newObject = jQuery.extend(true, {}, oldObject);

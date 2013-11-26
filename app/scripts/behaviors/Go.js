@@ -14,22 +14,22 @@
     _base.behaviors = {};
   }
 
-  window["simsketch.behaviors.Go"] = (function(_super) {
-    __extends(_Class, _super);
+  window.simsketch.behaviors.Go = (function(_super) {
+    __extends(Go, _super);
 
-    function _Class(object) {
+    function Go(object) {
       this.apply = __bind(this.apply, this);
-      _Class.__super__.constructor.apply(this, arguments);
+      Go.__super__.constructor.apply(this, arguments);
       this.setName("go");
       this.setIconName("fa-arrow-right");
       this._delta = new paper.Point(5, 0);
     }
 
-    _Class.prototype.apply = function() {
+    Go.prototype.apply = function() {
       return this.getObject().translate(this._delta);
     };
 
-    return _Class;
+    return Go;
 
   })(window.simsketch.behaviors.AbstractBehavior);
 

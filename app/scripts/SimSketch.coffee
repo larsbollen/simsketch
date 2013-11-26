@@ -3,11 +3,6 @@
 window.simsketch ?= {}
 window.simsketch.behaviors ?= {}
 
-window.simsketch.availableBehaviors = [
-  "simsketch.behaviors.Rotate",
-  "simsketch.behaviors.Go"
-]
-
 class window.simsketch.SimSketch
   constructor: (canvasID, toolbarID, behaviorbarID, drawingID) ->
     @canvasID = canvasID

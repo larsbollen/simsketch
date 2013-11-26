@@ -7,10 +7,9 @@
 
   window.simsketch.SimSketchBehaviorbar = (function() {
     function SimSketchBehaviorbar(paper, behaviorbarID, canvasID, drawingID, behaviors) {
-      var behavior, behaviorClassName, behaviorElement, behaviorList, behaviorbarElement, handle, _i, _len, _ref,
+      var behavior, behaviorElement, behaviorList, behaviorbarElement, handle, _i, _len, _ref,
         _this = this;
       this.paper = paper;
-      this.behaviorTemplates = {};
       this.behaviors = behaviors;
       console.log("Initializing SimSketchBehaviorbar.");
       behaviorbarElement = $("#" + behaviorbarID);
@@ -18,12 +17,12 @@
       handle = $('<div class="simsketch_behaviorbar_handle"/>');
       behaviorbarElement.append(handle);
       behaviorList = $("<ul></ul>");
-      _ref = window.simsketch.availableBehaviors;
+      if (window.simsketch.behaviorFactory === void 0) {
+        throw "Can't find the BehaviorFactory.";
+      }
+      _ref = window.simsketch.behaviorFactory.getBehaviors();
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        behaviorClassName = _ref[_i];
-        behavior = new window[behaviorClassName]();
-        behavior.setClassName(behaviorClassName);
-        this.behaviorTemplates[behavior.getID()] = behavior;
+        behavior = _ref[_i];
         behaviorElement = $("<li><span data-behaviorID='" + (behavior.getID()) + "' class='simsketch_behavior_template fa-stack fa-lg'><i class='fa fa-square-o fa-stack-2x'></i><i class='fa " + (behavior.getIconName()) + " fa-stack-1x'></i></span>" + (behavior.getName()) + "</li>");
         behaviorList.append(behaviorElement);
       }
@@ -48,7 +47,7 @@
         drop: function(event, ui) {
           var behaviorID, droppedBehavior, newBehavior, newBehaviorElement;
           behaviorID = $(ui.helper).attr("data-behaviorID");
-          droppedBehavior = _this.behaviorTemplates[behaviorID];
+          droppedBehavior = window.simsketch.behaviorFactory.getBehaviorByID(behaviorID);
           newBehavior = droppedBehavior.clone();
           _this.behaviors[newBehavior.getID()] = newBehavior;
           newBehaviorElement = $("<span data-behaviorID='" + (newBehavior.getID()) + "' class='simsketch_behavior fa-stack fa-lg'><i class='fa fa-square-o fa-stack-2x'></i><i class='fa " + (newBehavior.getIconName()) + " fa-stack-1x'></i></span>");

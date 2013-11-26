@@ -11,8 +11,6 @@
     _base.behaviors = {};
   }
 
-  window.simsketch.availableBehaviors = ["simsketch.behaviors.Rotate", "simsketch.behaviors.Go"];
-
   window.simsketch.SimSketch = (function() {
     function SimSketch(canvasID, toolbarID, behaviorbarID, drawingID) {
       this.canvasID = canvasID;

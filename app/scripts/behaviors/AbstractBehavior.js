@@ -23,35 +23,24 @@
       this.getName = __bind(this.getName, this);
       this.setID = __bind(this.setID, this);
       this.getID = __bind(this.getID, this);
-      this.setClassName = __bind(this.setClassName, this);
-      this.getClassName = __bind(this.getClassName, this);
       this.getObject = __bind(this.getObject, this);
       this.setObject = __bind(this.setObject, this);
       this._object = object;
       this._properties = {
         _id: uuid.v1(),
         _name: "abstractBehavior",
-        _className: "unknown classname",
         _iconName: "fa-question"
       };
       this;
     }
 
     AbstractBehavior.prototype.setObject = function(object) {
-      return this._object = object;
+      this._object = object;
+      return this;
     };
 
     AbstractBehavior.prototype.getObject = function() {
       return this._object;
-    };
-
-    AbstractBehavior.prototype.getClassName = function() {
-      return this.getProperty("_className");
-    };
-
-    AbstractBehavior.prototype.setClassName = function(className) {
-      this.setProperty("_className", className);
-      return this;
     };
 
     AbstractBehavior.prototype.getID = function() {
@@ -92,7 +81,7 @@
 
     AbstractBehavior.prototype.clone = function() {
       var newBehavior;
-      newBehavior = new window[this.getClassName()]();
+      newBehavior = new this.constructor();
       newBehavior._properties = jQuery.extend(true, {}, this._properties);
       newBehavior.setID(uuid.v1());
       return newBehavior;

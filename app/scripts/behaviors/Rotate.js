@@ -14,22 +14,22 @@
     _base.behaviors = {};
   }
 
-  window["simsketch.behaviors.Rotate"] = (function(_super) {
-    __extends(_Class, _super);
+  window.simsketch.behaviors.Rotate = (function(_super) {
+    __extends(Rotate, _super);
 
-    function _Class(object) {
+    function Rotate(object) {
       this.apply = __bind(this.apply, this);
-      _Class.__super__.constructor.apply(this, arguments);
+      Rotate.__super__.constructor.apply(this, arguments);
       this.setName("rotate");
       this.setIconName("fa-repeat");
       this.setProperty("degreesPerStep", 3);
     }
 
-    _Class.prototype.apply = function() {
+    Rotate.prototype.apply = function() {
       return this.getObject().rotate(this.getProperty("degreesPerStep"));
     };
 
-    return _Class;
+    return Rotate;
 
   })(window.simsketch.behaviors.AbstractBehavior);
 

@@ -3,7 +3,7 @@
 window.simsketch ?= {}
 window.simsketch.behaviors ?= {}
 
-class window["simsketch.behaviors.Go"] extends window.simsketch.behaviors.AbstractBehavior
+class window.simsketch.behaviors.Go extends window.simsketch.behaviors.AbstractBehavior
 
   constructor: (object) ->
     super

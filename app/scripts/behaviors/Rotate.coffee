@@ -3,7 +3,7 @@
 window.simsketch ?= {}
 window.simsketch.behaviors ?= {}
 
-class window["simsketch.behaviors.Rotate"] extends window.simsketch.behaviors.AbstractBehavior
+class window.simsketch.behaviors.Rotate extends window.simsketch.behaviors.AbstractBehavior
 
   constructor: (object) ->
     super

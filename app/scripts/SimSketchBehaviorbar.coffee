@@ -6,7 +6,6 @@ class window.simsketch.SimSketchBehaviorbar
 
   constructor: (paper, behaviorbarID, canvasID, drawingID, behaviors) ->
     @paper = paper
-    @behaviorTemplates = {}
     @behaviors = behaviors
     console.log("Initializing SimSketchBehaviorbar.")
     # creating the toolbar and adding the buttons
@@ -16,10 +15,10 @@ class window.simsketch.SimSketchBehaviorbar
     behaviorbarElement.append handle
     behaviorList = $("<ul></ul>")
 
-    for behaviorClassName in window.simsketch.availableBehaviors
-      behavior = new window[behaviorClassName]()
-      behavior.setClassName(behaviorClassName)
-      @behaviorTemplates[behavior.getID()] = behavior
+    # creating the list of available behaviors from the BehaviorFactory
+    if window.simsketch.behaviorFactory is undefined
+      throw "Can't find the BehaviorFactory."
+    for behavior in window.simsketch.behaviorFactory.getBehaviors()
       behaviorElement = $("<li><span data-behaviorID='#{behavior.getID()}' class='simsketch_behavior_template fa-stack fa-lg'><i class='fa fa-square-o fa-stack-2x'></i><i class='fa #{behavior.getIconName()} fa-stack-1x'></i></span>#{behavior.getName()}</li>")
       behaviorList.append behaviorElement
     behaviorbarElement.append behaviorList
@@ -45,7 +44,8 @@ class window.simsketch.SimSketchBehaviorbar
       accept: ".simsketch_behavior_template"
       drop: (event,ui) =>
         behaviorID = $(ui.helper).attr("data-behaviorID")
-        droppedBehavior = @behaviorTemplates[behaviorID]
+        droppedBehavior = window.simsketch.behaviorFactory.getBehaviorByID(behaviorID)
+        #droppedBehavior = @behaviorTemplates[behaviorID]
         newBehavior = droppedBehavior.clone()
         @behaviors[newBehavior.getID()] = newBehavior
         newBehaviorElement = $("<span data-behaviorID='#{newBehavior.getID()}' class='simsketch_behavior fa-stack fa-lg'><i class='fa fa-square-o fa-stack-2x'></i><i class='fa #{newBehavior.getIconName()} fa-stack-1x'></i></span>")
